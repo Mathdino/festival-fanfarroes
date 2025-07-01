@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Copy, Check, DollarSign, Users, Send } from "lucide-react"
 
 const PIX_KEY = "msilva24624@gmail.com"
-const WHATSAPP_NUMBER = "11947897643"
+const WHATSAPP_NUMBER = "5511947897643"
 
 export default function PagamentosScreen() {
   const [times, setTimes] = useState<any[]>([])
