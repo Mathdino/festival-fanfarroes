@@ -37,7 +37,7 @@ export default function PagamentosScreen() {
   }
 
   const handleSendWhatsapp = () => {
-    const msg = `Comprovante de pagamento\nNome do pagador: ${nomePagador}\nTime: ${nomeTime}`
+    const msg = `Comprovante de pagamento do Festival Fanfarrões|\nNome do pagador: ${nomePagador}| \nTime: ${nomeTime}`
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`
     window.open(url, "_blank")
     setModalOpen(false)
