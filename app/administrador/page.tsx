@@ -81,7 +81,7 @@ export default function AdminPage() {
                       Pago
                     </Button>
                     <Button onClick={() => updateStatus(time.id, "nao_pago")} variant={!time.statusPagamento || time.statusPagamento === "nao_pago" ? "default" : "outline"}>
-                      Falta pagamento
+                      Falta Pagamento
                     </Button>
                   </div>
                 </CardContent>
