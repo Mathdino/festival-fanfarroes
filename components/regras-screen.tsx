@@ -45,6 +45,24 @@ export default function RegrasScreen() {
       titulo: "Arbitragem",
       descricao: "Haverá juiz em todos os jogos.",
     },
+    {
+      icon: <DollarSign className="w-5 h-5" />,
+      titulo: "Pagamento em 2 etapas",
+      descricao:
+        "O pagamento da inscrição é feito em duas etapas: 50% na inscrição e 50% na última semana do festival.",
+    },
+    {
+      icon: <DollarSign className="w-5 h-5" />,
+      titulo: "Desistência do time",
+      descricao:
+        "Caso o time desista após a inscrição, perde os 50% já pagos.",
+    },
+    {
+      icon: <Users className="w-5 h-5" />,
+      titulo: "Substituição por lesão",
+      descricao:
+        "Se um jogador se machucar e não houver reserva, poderá ser substituído por outro atleta.",
+    },
   ]
 
   return (

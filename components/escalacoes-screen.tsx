@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Plus, Edit, Save, Users, Trash2 } from "lucide-react"
+import { Plus, Edit, Save, Users, Trash2, DollarSign } from "lucide-react"
 
 interface Jogador {
   id: number
@@ -22,6 +22,7 @@ interface Time {
   nome: string
   equipe: string
   jogadores: Jogador[]
+  statusPagamento?: string
 }
 
 export default function EscalacoesScreen() {
@@ -192,7 +193,11 @@ export default function EscalacoesScreen() {
     }
   }
 
-  const excluirTime = async (id: number) => {
+  const excluirTime = async (id: number, statusPagamento?: string) => {
+    if (statusPagamento === "parcial") {
+      alert("Não é possível excluir um time parcialmente pago. Apenas alterar jogadores.")
+      return
+    }
     if (!window.confirm("Tem certeza que deseja excluir este time?")) return
     setCarregando(true)
     try {
@@ -205,9 +210,7 @@ export default function EscalacoesScreen() {
         const data = await res.json()
         alert(data.error || "Erro ao excluir time!")
       }
-      // Atualiza lista
       setTimesCompletos((prev) => prev.filter((t) => t.id !== id))
-      // Se o time excluído estava selecionado, limpa seleção
       if (timeId === id) {
         setTimeSelecionado("")
         setNomeTime("")
@@ -299,15 +302,29 @@ export default function EscalacoesScreen() {
                     title="Excluir time"
                     onClick={e => {
                       e.stopPropagation()
-                      excluirTime(time.id)
+                      excluirTime(time.id, time.statusPagamento)
                     }}
-                    disabled={carregando}
+                    disabled={carregando || time.statusPagamento === "pago"}
+                    style={time.statusPagamento === "pago" ? { display: 'none' } : {}}
                   >
                     <Trash2 className="w-5 h-5" />
                   </button>
-                  <div className="font-bold text-green-700 text-lg mb-1">{time.nome}</div>
+                  <div className="font-bold text-green-700 text-lg mb-1 flex items-center gap-2">
+                    {time.nome}
+                  </div>
                   <div className="text-xs text-green-600 mb-2">Equipe: {time.equipe}</div>
-                  <div className="text-xs text-gray-700">Jogadores: {time.jogadores.length}</div>
+                  <div className="text-xs text-gray-700 mb-2">Jogadores: {time.jogadores.length}</div>
+                  <div className="mt-1">
+                    {time.statusPagamento === "pago" && (
+                      <span className="flex items-center gap-1 text-green-700 font-semibold text-xs"><DollarSign className="w-4 h-4" /> Pago</span>
+                    )}
+                    {time.statusPagamento === "parcial" && (
+                      <span className="flex items-center gap-1 text-yellow-600 font-semibold text-xs"><DollarSign className="w-4 h-4" /> Pago metade</span>
+                    )}
+                    {(!time.statusPagamento || time.statusPagamento === "nao_pago") && (
+                      <span className="flex items-center gap-1 text-red-600 font-semibold text-xs"><DollarSign className="w-4 h-4" /> Pendente</span>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -358,6 +375,16 @@ export default function EscalacoesScreen() {
             <CardHeader>
               <CardTitle className="text-green-800 flex items-center justify-between">
                 <span>Campo - {nomeTime || timeSelecionado}</span>
+                {(() => {
+                  const time = timesCompletos.find(t => t.id === timeId)
+                  if (time?.statusPagamento === "parcial") {
+                    return <span className="flex items-center gap-1 text-yellow-600 font-semibold text-sm"><DollarSign className="w-5 h-5" /> Pago metade</span>
+                  }
+                  if (time?.statusPagamento === "pago") {
+                    return <span className="flex items-center gap-1 text-green-600 font-semibold text-sm"><DollarSign className="w-5 h-5" /> Pago</span>
+                  }
+                  return null
+                })()}
                 <Dialog open={dialogAberto} onOpenChange={setDialogAberto}>
                   <DialogTrigger asChild>
                     <Button size="sm" disabled={jogadores.length >= 10}>

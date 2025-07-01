@@ -18,6 +18,7 @@ model Time {
   nome      String
   equipe    String     @unique
   jogadores Jogador[]
+  statusPagamento String @default("nao_pago") // "nao_pago", "parcial", "pago"
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 }

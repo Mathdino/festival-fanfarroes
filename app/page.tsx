@@ -4,10 +4,11 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { Calendar, Clock, Users, FileText } from "lucide-react"
+import { Calendar, Clock, Users, FileText, DollarSign } from "lucide-react"
 import HorariosScreen from "@/components/horarios-screen"
 import RegrasScreen from "@/components/regras-screen"
 import EscalacoesScreen from "@/components/escalacoes-screen"
+import PagamentosScreen from "@/components/pagamentos-screen"
 
 export default function FestivalApp() {
   const [activeScreen, setActiveScreen] = useState("home")
@@ -22,6 +23,8 @@ export default function FestivalApp() {
         return <RegrasScreen />
       case "escalacoes":
         return <EscalacoesScreen />
+      case "pagamentos":
+        return <PagamentosScreen />
       default:
         return <HomeScreen />
     }
@@ -66,6 +69,14 @@ export default function FestivalApp() {
             <Calendar className="w-5 h-5" />
             <span className="text-xs">Escalações</span>
           </Button>
+          <Button
+            variant={activeScreen === "pagamentos" ? "default" : "ghost"}
+            className="flex flex-col items-center gap-1 h-auto py-2 px-3"
+            onClick={() => setActiveScreen("pagamentos")}
+          >
+            <DollarSign className="w-5 h-5" />
+            <span className="text-xs">Pagamentos</span>
+          </Button>
         </div>
       </div>
     </div>
@@ -88,7 +99,7 @@ function HomeScreen() {
         <h1 className="text-2xl font-bold text-green-800 mb-2">FESTIVAL FAMÍLIA FANFARRÕES</h1>
         <p className="text-green-600 mb-4">Futebol Society</p>
         <div className="bg-green-100 p-4 rounded-lg">
-          <p className="text-green-800 font-semibold">📅 27 de Julho de 2025</p>
+          <p className="text-green-800 font-semibold">📅 01 de Agosto de 2025</p>
           <p className="text-green-700">🕖 7h às 13h</p>
           <p className="text-green-700">⚽ 12 Equipes - 6 Jogos</p>
         </div>
