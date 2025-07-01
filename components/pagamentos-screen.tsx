@@ -52,6 +52,7 @@ export default function PagamentosScreen() {
       const formData = new FormData()
       formData.append("file", comprovante)
       formData.append("timeId", String(selectedTimeId))
+      formData.append("pagador", nomePagador)
       fetch("/api/comprovantes", {
         method: "POST",
         body: formData

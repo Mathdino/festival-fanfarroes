@@ -19,6 +19,8 @@ model Time {
   equipe    String     @unique
   jogadores Jogador[]
   statusPagamento String @default("nao_pago") // "nao_pago", "parcial", "pago"
+  comprovanteUrl String?
+  pagador String?
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 }

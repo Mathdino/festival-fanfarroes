@@ -20,6 +20,13 @@ export default function AdminPage() {
     fetch("/api/times")
       .then((res) => res.json())
       .then(setTimes)
+    // Atualiza a cada 5 segundos
+    const interval = setInterval(() => {
+      fetch("/api/times")
+        .then((res) => res.json())
+        .then(setTimes)
+    }, 5000)
+    return () => clearInterval(interval)
   }, [])
 
   // Buscar comprovantes e pagador (mock, ideal seria vir do backend)
