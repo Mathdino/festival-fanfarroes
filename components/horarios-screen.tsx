@@ -15,7 +15,7 @@ export default function HorariosScreen() {
     <div className="p-4 space-y-4">
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold text-green-800 mb-2">Horários dos Jogos</h2>
-        <p className="text-green-600">01 de Agosto de 2025</p>
+        <p className="text-green-600">03 de Agosto de 2025</p>
       </div>
 
       <div className="space-y-3">
