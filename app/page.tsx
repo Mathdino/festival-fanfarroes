@@ -99,7 +99,7 @@ function HomeScreen() {
         <h1 className="text-2xl font-bold text-green-800 mb-2">FESTIVAL FAMÍLIA FANFARRÕES</h1>
         <p className="text-green-600 mb-4">Futebol Society</p>
         <div className="bg-green-100 p-4 rounded-lg">
-          <p className="text-green-800 font-semibold">📅 01 de Agosto de 2025</p>
+          <p className="text-green-800 font-semibold">📅 03 de Agosto de 2025</p>
           <p className="text-green-700">🕖 7h às 13h</p>
           <p className="text-green-700">⚽ 12 Equipes - 6 Jogos</p>
         </div>

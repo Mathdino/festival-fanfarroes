@@ -3,19 +3,19 @@ import { Clock, Users } from "lucide-react"
 
 export default function HorariosScreen() {
   const jogos = [
-    { id: 1, horario: "07:00 - 08:00", equipes: "Equipe A vs Equipe B" },
-    { id: 2, horario: "08:00 - 09:00", equipes: "Equipe C vs Equipe D" },
-    { id: 3, horario: "09:00 - 10:00", equipes: "Equipe E vs Equipe F" },
-    { id: 4, horario: "10:00 - 11:00", equipes: "Equipe G vs Equipe H" },
-    { id: 5, horario: "11:00 - 12:00", equipes: "Equipe I vs Equipe J" },
-    { id: 6, horario: "12:00 - 13:00", equipes: "Equipe K vs Equipe L" },
+    { id: 1, horario: "07:00 - 08:00", equipes: "Aguardando Sorteio" },
+    { id: 2, horario: "08:00 - 09:00", equipes: "Aguardando Sorteio" },
+    { id: 3, horario: "09:00 - 10:00", equipes: "Aguardando Sorteio" },
+    { id: 4, horario: "10:00 - 11:00", equipes: "Aguardando Sorteio" },
+    { id: 5, horario: "11:00 - 12:00", equipes: "Aguardando Sorteio" },
+    { id: 6, horario: "12:00 - 13:00", equipes: "Aguardando Sorteio" },
   ]
 
   return (
     <div className="p-4 space-y-4">
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold text-green-800 mb-2">Horários dos Jogos</h2>
-        <p className="text-green-600">01 de Agosto de 2025</p>
+        <p className="text-green-600">03 de Agosto de 2025</p>
       </div>
 
       <div className="space-y-3">
