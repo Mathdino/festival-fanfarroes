@@ -312,15 +312,15 @@ export default function EscalacoesScreen() {
   return (
     <div className="p-4 space-y-4">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-green-800 mb-2">Escalações</h2>
-        <p className="text-green-600">Configure sua equipe</p>
+        <h2 className="text-2xl font-bold text-primary mb-2">Escalações</h2>
+        <p className="text-primary/70">Configure sua equipe</p>
       </div>
 
       {/* Times Completos */}
       {timesCompletos.length > 0 && (
-        <Card className="mb-4 bg-green-50 border-green-200">
+        <Card className="mb-4 bg-primary/5 border-primary/20">
           <CardHeader>
-            <CardTitle className="text-green-800 flex items-center gap-2">
+            <CardTitle className="text-primary flex items-center gap-2">
               <Users className="w-5 h-5" /> Times Completos
             </CardTitle>
           </CardHeader>
@@ -329,51 +329,59 @@ export default function EscalacoesScreen() {
               {timesCompletos.map((time) => (
                 <div
                   key={time.id}
-                  className={`border rounded-lg p-3 min-w-[180px] bg-white shadow cursor-pointer hover:bg-green-100 transition relative`}
+                  className={`border rounded-lg p-3 min-w-[260px] bg-white shadow cursor-pointer hover:bg-primary/10 transition relative`}
                   onClick={() => {
                     setTimeSelecionado(time.equipe);
                   }}
                 >
-                  <button
-                    className="absolute top-2 right-2 text-red-500 hover:text-red-700 z-10"
-                    title="Excluir time"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      excluirTime(time.id, time.statusPagamento);
-                    }}
-                    disabled={carregando || time.statusPagamento === "pago"}
-                    style={
-                      time.statusPagamento === "pago" ? { display: "none" } : {}
-                    }
-                  >
-                    <Trash2 className="w-5 h-5" />
-                  </button>
-                  <div className="font-bold text-green-700 text-lg mb-1 flex items-center gap-2">
-                    {time.nome}
-                  </div>
-                  <div className="text-xs text-green-600 mb-2">
-                    Equipe: {time.equipe}
-                  </div>
-                  <div className="text-xs text-gray-700 mb-2">
-                    Jogadores: {time.jogadores.length}
-                  </div>
-                  <div className="mt-1">
-                    {time.statusPagamento === "pago" && (
-                      <span className="flex items-center gap-1 text-green-700 font-semibold text-xs">
-                        <DollarSign className="w-4 h-4" /> Pago
-                      </span>
-                    )}
-                    {time.statusPagamento === "parcial" && (
-                      <span className="flex items-center gap-1 text-yellow-600 font-semibold text-xs">
-                        <DollarSign className="w-4 h-4" /> Pago metade
-                      </span>
-                    )}
-                    {(!time.statusPagamento ||
-                      time.statusPagamento === "nao_pago") && (
-                      <span className="flex items-center gap-1 text-red-600 font-semibold text-xs">
-                        <DollarSign className="w-4 h-4" /> Pendente
-                      </span>
-                    )}
+                  <div className="flex flex-col h-full">
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between mb-1">
+                        <div className="font-bold text-primary/80 text-lg flex items-center gap-2">
+                          {time.nome}
+                        </div>
+                        <button
+                          className="text-red-500 hover:text-red-700"
+                          title="Excluir time"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            excluirTime(time.id, time.statusPagamento);
+                          }}
+                          disabled={carregando || time.statusPagamento === "pago"}
+                          style={
+                            time.statusPagamento === "pago"
+                              ? { display: "none" }
+                              : {}
+                          }
+                        >
+                          <Trash2 className="w-5 h-5" />
+                        </button>
+                      </div>
+                      <div className="text-xs text-primary/70 mb-2">
+                        Equipe: {time.equipe}
+                      </div>
+                      <div className="text-xs text-gray-700 mb-2">
+                        Jogadores: {time.jogadores.length}
+                      </div>
+                      <div className="mt-1">
+                        {time.statusPagamento === "pago" && (
+                          <span className="flex items-center gap-1 text-green-700 font-semibold text-xs">
+                            <DollarSign className="w-4 h-4" /> Pago
+                          </span>
+                        )}
+                        {time.statusPagamento === "parcial" && (
+                          <span className="flex items-center gap-1 text-yellow-600 font-semibold text-xs">
+                            <DollarSign className="w-4 h-4" /> Pago metade
+                          </span>
+                        )}
+                        {(!time.statusPagamento ||
+                          time.statusPagamento === "nao_pago") && (
+                          <span className="flex items-center gap-1 text-red-600 font-semibold text-xs">
+                            <DollarSign className="w-4 h-4" /> Pendente
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -385,7 +393,7 @@ export default function EscalacoesScreen() {
       {/* Seleção de Time */}
       <Card className="bg-white/90 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-green-800">Selecionar Time</CardTitle>
+          <CardTitle className="text-primary">Selecionar Time</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -423,7 +431,7 @@ export default function EscalacoesScreen() {
           {/* Campo de Futebol */}
           <Card className="bg-white/90 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-green-800 flex items-center justify-between">
+              <CardTitle className="text-primary flex items-center justify-between">
                 <span>{nomeTime || timeSelecionado}</span>
                 {(() => {
                   const time = timesCompletos.find((t) => t.id === timeId);
@@ -436,7 +444,7 @@ export default function EscalacoesScreen() {
                   }
                   if (time?.statusPagamento === "pago") {
                     return (
-                      <span className="flex items-center gap-1 text-green-600 font-semibold text-sm">
+                      <span className="flex items-center gap-1 text-green-700 font-semibold text-sm">
                         <DollarSign className="w-5 h-5" /> Pago
                       </span>
                     );
@@ -496,7 +504,7 @@ export default function EscalacoesScreen() {
             </CardHeader>
             <CardContent>
               {/* Campo de Futebol */}
-              <div className="relative bg-green-400 rounded-lg p-4 min-h-[400px] border-2 border-white">
+              <div className="relative bg-green-600 rounded-lg p-4 min-h-[400px] border-2 border-white">
                 {/* Linhas do campo */}
                 <div className="absolute inset-4 border-2 border-white rounded">
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-16 border-2 border-white border-t-0"></div>
@@ -517,7 +525,7 @@ export default function EscalacoesScreen() {
                       style={{ left: `${posicao.x}%`, top: `${posicao.y}%` }}
                       onClick={() => abrirModalJogador(jogador, posicao.id)}
                     >
-                      <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex flex-col items-center justify-center text-xs shadow-lg hover:bg-blue-700 transition-colors">
+                      <div className="bg-green-800 text-white rounded-full w-12 h-12 flex flex-col items-center justify-center text-xs shadow-lg hover:bg-green-900 transition-colors">
                         {jogador ? (
                           <>
                             <span className="font-bold">{jogador.numero}</span>
@@ -536,7 +544,7 @@ export default function EscalacoesScreen() {
 
               {/* Banco de Reservas */}
               <div className="mt-4">
-                <h4 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
+                <h4 className="font-semibold text-primary mb-2 flex items-center gap-2">
                   <Users className="w-4 h-4" />
                   Banco de Reservas
                 </h4>
@@ -577,7 +585,7 @@ export default function EscalacoesScreen() {
           {jogadores.length > 0 && (
             <Card className="bg-white/90 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="text-green-800">
+                <CardTitle className="text-primary">
                   Lista de Jogadores
                 </CardTitle>
               </CardHeader>
@@ -599,7 +607,7 @@ export default function EscalacoesScreen() {
                       ) : (
                         <>
                           <div className="flex items-center gap-3">
-                            <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                            <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                               {jogador.numero}
                             </div>
                             <div>
@@ -644,7 +652,7 @@ export default function EscalacoesScreen() {
           {jogadores.length > 0 && (
             <Button
               onClick={salvarEscalacao}
-              className="w-full bg-green-600 hover:bg-green-700"
+              className="w-full bg-primary hover:bg-primary/80"
               disabled={carregando}
             >
               <Save className="w-4 h-4 mr-2" />

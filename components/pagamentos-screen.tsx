@@ -66,10 +66,10 @@ export default function PagamentosScreen() {
     <div className="p-4 space-y-4">
       <Card className="bg-white/90 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-green-800">Pagamentos</CardTitle>
+          <CardTitle className="text-primary">Pagamentos</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="mb-4 p-3 bg-green-50 border-l-4 border-green-400 rounded">
+          <div className="mb-4 p-3 bg-primary/5 border-l-4 border-primary/60 rounded">
             <p className="mb-1 font-semibold">Pagamento em 2 etapas:</p>
             <ul className="list-disc ml-6 text-sm mb-2">
               <li>50% (R$ 100) na inscrição do time</li>
@@ -81,14 +81,14 @@ export default function PagamentosScreen() {
           <div className="mb-4 flex flex-col sm:flex-row gap-2 items-stretch">
             <Input value={PIX_KEY} readOnly className="w-full sm:w-auto flex-1" />
             <Button onClick={handleCopyPix} variant="outline" className="w-full sm:w-auto whitespace-nowrap">
-              {copied ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />} Copiar Pix
+              {copied ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />} Copiar Pix
             </Button>
           </div>
           <div className="space-y-4">
             {times.map((time) => (
-              <Card key={time.id} className="bg-green-50 border-green-200">
+              <Card key={time.id} className="bg-primary/5 border-primary/20">
                 <CardHeader>
-                  <CardTitle className="text-green-800 flex items-center gap-2">
+                  <CardTitle className="text-primary flex items-center gap-2">
                     <Users className="w-5 h-5" />
                     {time.nome}
                   </CardTitle>
@@ -134,7 +134,7 @@ export default function PagamentosScreen() {
               accept="image/*,application/pdf"
               ref={fileInputRef}
               onChange={e => setComprovante(e.target.files?.[0] || null)}
-              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
+              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/5 file:text-primary/70 hover:file:bg-primary/10"
             />
             <Button className="w-full" onClick={handleSendWhatsapp}>
               Enviar e atualizar status

@@ -45,17 +45,45 @@ export async function PUT(req: NextRequest) {
     if (!id) {
       return NextResponse.json({ error: 'ID não informado' }, { status: 400 })
     }
-    const updateData: any = {}
-    if (statusPagamento) updateData.statusPagamento = statusPagamento
-    if (nome) updateData.nome = nome
-    if (equipe) updateData.equipe = equipe
-    if (jogadores) updateData.jogadores = { set: [], create: jogadores }
+    const updateData = {} as any;
+    if (statusPagamento) updateData.statusPagamento = statusPagamento;
+    if (nome) updateData.nome = nome;
+    if (equipe) updateData.equipe = equipe;
+
+    if (jogadores) {
+      // Separe jogadores em novos (sem id) e existentes (com id)
+      const jogadoresParaAtualizar = jogadores.filter((j: any) => j.id);
+      const jogadoresParaCriar = jogadores.filter((j: any) => !j.id);
+      const idsFrontend = jogadoresParaAtualizar.map((j: any) => j.id);
+
+      // Remover jogadores que não estão mais na lista
+      await prisma.jogador.deleteMany({
+        where: {
+          timeId: id,
+          id: { notIn: idsFrontend },
+        },
+      });
+
+      updateData.jogadores = {
+        create: jogadoresParaCriar,
+        update: jogadoresParaAtualizar.map((j: any) => ({
+          where: { id: j.id },
+          data: {
+            nome: j.nome,
+            numero: j.numero,
+            posicao: j.posicao,
+            posicaoTitular: j.posicaoTitular ?? null,
+          },
+        })),
+      };
+    }
+
     const time = await prisma.time.update({
       where: { id },
       data: updateData,
       include: { jogadores: true },
-    })
-    return NextResponse.json(time)
+    });
+    return NextResponse.json(time);
   } catch (error: any) {
     return NextResponse.json({ error: error.message || 'Erro ao atualizar time' }, { status: 500 })
   }

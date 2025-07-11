@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { Calendar, Clock, Users, FileText, DollarSign } from "lucide-react"
+import { Calendar, Clock, Users, FileText, DollarSign, Trophy } from "lucide-react"
 import HorariosScreen from "@/components/horarios-screen"
 import RegrasScreen from "@/components/regras-screen"
 import EscalacoesScreen from "@/components/escalacoes-screen"
@@ -31,7 +31,7 @@ export default function FestivalApp() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 pb-20">
+    <div className="min-h-screen bg-gradient-to-b from-primary/5 to-primary/10 pb-20">
       {renderScreen()}
 
       {/* Bottom Navigation */}
@@ -85,25 +85,45 @@ export default function FestivalApp() {
 
 function HomeScreen() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6">
-      <Card className="w-full max-w-md p-8 text-center bg-white/90 backdrop-blur-sm shadow-xl">
-        <div className="mb-6">
-          <Image
-            src="/escudo-fanfarroes.png"
-            alt="Escudo Família Fanfarrões"
-            width={150}
-            height={150}
-            className="mx-auto mb-4"
-          />
+    <div className="flex flex-col min-h-screen bg-white">
+      {/* Imagem do topo com escudo e nome */}
+      <div className="w-full flex justify-center">
+        <Image
+          src="/Parte1.png"
+          alt="Topo Família Fanfarrões"
+          width={600}
+          height={300}
+          className="w-full h-auto object-contain"
+          priority
+        />
+      </div>
+      {/* Imagem inferior com informações do festival */}
+      <div className="w-full flex justify-center relative">
+        <Image
+          src="/Parte2.png"
+          alt="Informações Festival Família Fanfarrões"
+          width={600}
+          height={600}
+          className="w-full h-auto object-contain"
+        />
+        {/* Informações sobrepostas */}
+        <div className="absolute left-0 w-full h-full flex flex-col items-center justify-center pointer-events-none" style={{ top: '30%' }}>
+          <div className="space-y-3 rounded-xl px-6 py-5">
+            <div className="flex items-center gap-2 justify-center">
+              <Calendar className="w-6 h-6 text-white" />
+              <span className="text-lg md:text-xl font-bold text-white">03 de Agosto de 2025</span>
+            </div>
+            <div className="flex items-center gap-2 justify-center">
+              <Clock className="w-6 h-6 text-white" />
+              <span className="text-lg md:text-xl font-bold text-white">7 h às 13 h</span>
+            </div>
+            <div className="flex items-center gap-2 justify-center">
+              <Trophy className="w-6 h-6 text-white" />
+              <span className="text-lg md:text-xl font-bold text-white">12 Equipes <span className="mx-1">•</span> 6 Jogos</span>
+            </div>
+          </div>
         </div>
-        <h1 className="text-2xl font-bold text-green-800 mb-2">FESTIVAL FAMÍLIA FANFARRÕES</h1>
-        <p className="text-green-600 mb-4">Futebol Society</p>
-        <div className="bg-green-100 p-4 rounded-lg">
-          <p className="text-green-800 font-semibold">📅 03 de Agosto de 2025</p>
-          <p className="text-green-700">🕖 7h às 13h</p>
-          <p className="text-green-700">⚽ 12 Equipes - 6 Jogos</p>
-        </div>
-      </Card>
+      </div>
     </div>
   )
 }

@@ -14,8 +14,8 @@ export default function HorariosScreen() {
   return (
     <div className="p-4 space-y-4">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-green-800 mb-2">Horários dos Jogos</h2>
-        <p className="text-green-600">03 de Agosto de 2025</p>
+        <h2 className="text-2xl font-bold text-primary mb-2">Horários dos Jogos</h2>
+        <p className="text-primary/70">03 de Agosto de 2025</p>
       </div>
 
       <div className="space-y-3">
@@ -24,18 +24,18 @@ export default function HorariosScreen() {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="bg-green-100 p-2 rounded-full">
-                    <Clock className="w-5 h-5 text-green-600" />
+                  <div className="bg-primary/10 p-2 rounded-full">
+                    <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-green-800">Jogo {jogo.id}</p>
+                    <p className="font-semibold text-primary">Jogo {jogo.id}</p>
                     <p className="text-sm text-gray-600">{jogo.horario}</p>
                   </div>
                 </div>
                 <div className="text-right">
                   <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-green-600" />
-                    <p className="text-sm font-medium text-green-700">{jogo.equipes}</p>
+                    <Users className="w-4 h-4 text-primary" />
+                    <p className="text-sm font-medium text-primary/80">{jogo.equipes}</p>
                   </div>
                 </div>
               </div>
@@ -44,11 +44,11 @@ export default function HorariosScreen() {
         ))}
       </div>
 
-      <Card className="bg-green-50 border-green-200">
+      <Card className="bg-primary/5 border-primary/20">
         <CardHeader>
-          <CardTitle className="text-green-800 text-lg">Formato dos Jogos</CardTitle>
+          <CardTitle className="text-primary text-lg">Formato dos Jogos</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-2 text-sm text-green-700">
+        <CardContent className="space-y-2 text-sm text-primary/80">
           <p>• 1º Tempo: 20 minutos</p>
           <p>• Intervalo: 10 minutos</p>
           <p>• 2º Tempo: 20 minutos</p>

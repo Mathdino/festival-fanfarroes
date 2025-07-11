@@ -68,8 +68,8 @@ export default function RegrasScreen() {
   return (
     <div className="p-4 space-y-4">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-green-800 mb-2">Regras do Festival</h2>
-        <p className="text-green-600">Festival Família Fanfarrões 2025</p>
+        <h2 className="text-2xl font-bold text-primary mb-2">Regras do Festival</h2>
+        <p className="text-primary/70">Festival Família Fanfarrões 2025</p>
       </div>
 
       <div className="space-y-3">
@@ -77,13 +77,13 @@ export default function RegrasScreen() {
           <Card key={index} className="bg-white/90 backdrop-blur-sm shadow-md">
             <CardContent className="p-4">
               <div className="flex gap-3 items-center">
-                <div className="flex-shrink-0 flex items-center justify-center bg-green-100 rounded-full w-12 h-12">
-                  <div className="text-green-600 flex items-center justify-center w-7 h-7">
+                <div className="flex-shrink-0 flex items-center justify-center bg-primary/10 rounded-full w-12 h-12">
+                  <div className="text-primary flex items-center justify-center w-7 h-7">
                     {regra.icon}
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-green-800 mb-1">{regra.titulo}</h3>
+                  <h3 className="font-semibold text-primary mb-1">{regra.titulo}</h3>
                   <p className="text-sm text-gray-700">{regra.descricao}</p>
                 </div>
               </div>

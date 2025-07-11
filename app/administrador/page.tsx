@@ -47,24 +47,24 @@ export default function AdminPage() {
     <div className="p-4 space-y-4">
       <Card className="bg-white/90 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-green-800">Administrador</CardTitle>
+          <CardTitle className="text-primary">Administrador</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             {times.map((time) => (
-              <Card key={time.id} className="bg-green-50 border-green-200">
+              <Card key={time.id} className="bg-primary/5 border-primary/20">
                 <CardHeader>
-                  <CardTitle className="text-green-800 flex items-center gap-2">
+                  <CardTitle className="text-primary flex items-center gap-2">
                     <Users className="w-5 h-5" />
                     {time.nome}
                     {time.statusPagamento === "parcial" && <DollarSign className="w-5 h-5 text-yellow-500" />}
-                    {time.statusPagamento === "pago" && <CheckCircle className="w-5 h-5 text-green-600" />}
+                    {time.statusPagamento === "pago" && <CheckCircle className="w-5 h-5 text-primary" />}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="mb-2">
                     <span className="font-semibold">Status: </span>
-                    {time.statusPagamento === "pago" && <span className="text-green-700">Pago</span>}
+                    {time.statusPagamento === "pago" && <span className="text-primary/80">Pago</span>}
                     {time.statusPagamento === "parcial" && <span className="text-yellow-700">Parcial</span>}
                     {!time.statusPagamento || time.statusPagamento === "nao_pago" ? <span className="text-red-700">Pendente</span> : null}
                   </div>
@@ -75,7 +75,7 @@ export default function AdminPage() {
                   <div className="mb-2">
                     <span className="font-semibold">Comprovante: </span>
                     {time.comprovanteUrl ? (
-                      <a href={time.comprovanteUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline flex items-center gap-1"><Eye className="w-4 h-4" />Visualizar</a>
+                      <a href={time.comprovanteUrl} target="_blank" rel="noopener noreferrer" className="text-primary underline flex items-center gap-1"><Eye className="w-4 h-4" />Visualizar</a>
                     ) : (
                       <span className="text-gray-500">Não enviado</span>
                     )}
