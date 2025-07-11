@@ -85,26 +85,26 @@ export default function FestivalApp() {
 
 function HomeScreen() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white items-center justify-center">
       {/* Imagem do topo com escudo e nome */}
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center items-center">
         <Image
           src="/Parte1.png"
           alt="Topo Família Fanfarrões"
           width={600}
           height={300}
-          className="w-full h-auto object-contain"
+          className="object-contain"
           priority
         />
       </div>
       {/* Imagem inferior com informações do festival */}
-      <div className="w-full flex justify-center relative">
+      <div className="w-full flex justify-center items-center relative">
         <Image
           src="/Parte2.png"
           alt="Informações Festival Família Fanfarrões"
           width={600}
           height={600}
-          className="w-full h-auto object-contain"
+          className="object-contain"
         />
         {/* Informações sobrepostas */}
         <div className="absolute left-0 w-full h-full flex flex-col items-center justify-center pointer-events-none" style={{ top: '30%' }}>
