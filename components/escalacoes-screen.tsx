@@ -50,7 +50,6 @@ export default function EscalacoesScreen() {
     "Equipe I",
     "Equipe J",
     "Equipe K",
-    "Equipe L",
   ]);
 
   const [timeSelecionado, setTimeSelecionado] = useState<string>("");
@@ -347,7 +346,9 @@ export default function EscalacoesScreen() {
                             e.stopPropagation();
                             excluirTime(time.id, time.statusPagamento);
                           }}
-                          disabled={carregando || time.statusPagamento === "pago"}
+                          disabled={
+                            carregando || time.statusPagamento === "pago"
+                          }
                           style={
                             time.statusPagamento === "pago"
                               ? { display: "none" }

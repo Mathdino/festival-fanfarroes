@@ -1,34 +1,41 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import { Calendar, Clock, Users, FileText, DollarSign, Trophy } from "lucide-react"
-import HorariosScreen from "@/components/horarios-screen"
-import RegrasScreen from "@/components/regras-screen"
-import EscalacoesScreen from "@/components/escalacoes-screen"
-import PagamentosScreen from "@/components/pagamentos-screen"
+import { useState } from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import {
+  Calendar,
+  Clock,
+  Users,
+  FileText,
+  DollarSign,
+  Trophy,
+} from "lucide-react";
+import HorariosScreen from "@/components/horarios-screen";
+import RegrasScreen from "@/components/regras-screen";
+import EscalacoesScreen from "@/components/escalacoes-screen";
+import PagamentosScreen from "@/components/pagamentos-screen";
 
 export default function FestivalApp() {
-  const [activeScreen, setActiveScreen] = useState("home")
+  const [activeScreen, setActiveScreen] = useState("home");
 
   const renderScreen = () => {
     switch (activeScreen) {
       case "home":
-        return <HomeScreen />
+        return <HomeScreen />;
       case "horarios":
-        return <HorariosScreen />
+        return <HorariosScreen />;
       case "regras":
-        return <RegrasScreen />
+        return <RegrasScreen />;
       case "escalacoes":
-        return <EscalacoesScreen />
+        return <EscalacoesScreen />;
       case "pagamentos":
-        return <PagamentosScreen />
+        return <PagamentosScreen />;
       default:
-        return <HomeScreen />
+        return <HomeScreen />;
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/5 to-primary/10 pb-20">
@@ -80,12 +87,12 @@ export default function FestivalApp() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function HomeScreen() {
   return (
-    <div className="flex flex-col min-h-screen bg-white items-center justify-center">
+    <div className="flex flex-col min-h-screen bg-[#007fcc] items-center justify-center">
       {/* Imagem do topo com escudo e nome */}
       <div className="w-full flex justify-center items-center">
         <Image
@@ -107,23 +114,32 @@ function HomeScreen() {
           className="object-contain"
         />
         {/* Informações sobrepostas */}
-        <div className="absolute left-0 w-full h-full flex flex-col items-center justify-center pointer-events-none" style={{ top: '30%' }}>
+        <div
+          className="absolute left-0 w-full h-full flex flex-col items-center justify-center pointer-events-none"
+          style={{ top: "30%" }}
+        >
           <div className="space-y-3 rounded-xl px-6 py-5">
             <div className="flex items-center gap-2 justify-center">
               <Calendar className="w-6 h-6 text-white" />
-              <span className="text-lg md:text-xl font-bold text-white">03 de Agosto de 2025</span>
+              <span className="text-lg md:text-xl font-bold text-white">
+                03 de Agosto de 2025
+              </span>
             </div>
             <div className="flex items-center gap-2 justify-center">
               <Clock className="w-6 h-6 text-white" />
-              <span className="text-lg md:text-xl font-bold text-white">7 h às 13 h</span>
+              <span className="text-lg md:text-xl font-bold text-white">
+                8 h às 13 h
+              </span>
             </div>
             <div className="flex items-center gap-2 justify-center">
               <Trophy className="w-6 h-6 text-white" />
-              <span className="text-lg md:text-xl font-bold text-white">12 Equipes <span className="mx-1">•</span> 6 Jogos</span>
+              <span className="text-lg md:text-xl font-bold text-white">
+                10 Equipes <span className="mx-1">•</span> 6 Jogos
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
