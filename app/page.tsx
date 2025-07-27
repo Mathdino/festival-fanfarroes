@@ -134,7 +134,7 @@ function HomeScreen() {
             <div className="flex items-center gap-2 justify-center">
               <Trophy className="w-6 h-6 text-white" />
               <span className="text-lg md:text-xl font-bold text-white">
-                10 Equipes <span className="mx-1">•</span> 6 Jogos
+                10 Equipes <span className="mx-1">•</span> 5 Jogos
               </span>
             </div>
           </div>

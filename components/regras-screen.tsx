@@ -12,12 +12,12 @@ export default function RegrasScreen() {
     {
       icon: <Trophy className="w-5 h-5" />,
       titulo: "Número de Jogos",
-      descricao: "Serão realizados 6 jogos, equivalendo a 12 equipes participantes.",
+      descricao: "Serão realizados 5 jogos, equivalendo a 10 equipes participantes.",
     },
     {
       icon: <Clock className="w-5 h-5" />,
       titulo: "Horário dos Jogos",
-      descricao: "Todos os jogos começarão às 7:00 horas da manhã (ajustado conforme cronograma).",
+      descricao: "Os jogos começarão às 8:00 horas da manhã (ajustado conforme cronograma).",
     },
     {
       icon: <AlertCircle className="w-5 h-5" />,
