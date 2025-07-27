@@ -3,11 +3,11 @@ import { Clock, Users } from "lucide-react"
 
 export default function HorariosScreen() {
   const jogos = [
-    { id: 1, horario: "07:00 - 08:00", equipes: "FANFARRÕES B x JNG FC" },
-    { id: 2, horario: "08:00 - 09:00", equipes: "FANFARRÕES C x RESSACA FC" },
-    { id: 3, horario: "09:00 - 10:00", equipes: "FANFARRÕES D x SÓ GELADA A" },
-    { id: 4, horario: "10:00 - 11:00", equipes: "FANFARRÕES A x SÓ GELADA B" },
-    { id: 5, horario: "11:00 - 12:00", equipes: "FANFARRÕES E x SÓ GELADA C" },
+    { id: 1, horario: "08:00 - 09:00", equipes: "FANFARRÕES B x JNG FC" },
+    { id: 2, horario: "09:00 - 10:00", equipes: "FANFARRÕES C x RESSACA FC" },
+    { id: 3, horario: "10:00 - 11:00", equipes: "FANFARRÕES D x SÓ GELADA A" },
+    { id: 4, horario: "11:00 - 12:00", equipes: "FANFARRÕES A x SÓ GELADA B" },
+    { id: 5, horario: "12:00 - 13:00", equipes: "FANFARRÕES E x SÓ GELADA C" },
   ]
 
   return (
