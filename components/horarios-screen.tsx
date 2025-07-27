@@ -23,9 +23,6 @@ export default function HorariosScreen() {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-2 rounded-full">
-                    <Clock className="w-5 h-5 text-primary" />
-                  </div>
                   <div>
                     <p className="font-semibold text-primary">Jogo {jogo.id}</p>
                     <p className="text-sm text-gray-600">{jogo.horario}</p>
@@ -33,8 +30,7 @@ export default function HorariosScreen() {
                 </div>
                 <div className="text-right">
                   <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-primary" />
-                    <p className="text-sm font-medium text-primary/80">{jogo.equipes}</p>
+                    <p className="text-sm font-bold text-primary/80">{jogo.equipes}</p>
                   </div>
                 </div>
               </div>
